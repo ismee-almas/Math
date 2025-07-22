@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Math Operations for Students</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f0f8ff;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    #result {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Math Fun - Two Number Operations</h1>
+  <p>Click the button below to enter two numbers. You'll see their sum, difference, product, and quotient!</p>
+  
+  <button onclick="askNumbers()">Start</button>
+
+  <div id="result"></div>
+
+  <script>
+    function askNumbers() {
+      let num1 = prompt("Enter the first number:");
+      let num2 = prompt("Enter the second number:");
+
+      // Convert input to numbers
+      num1 = parseFloat(num1);
+      num2 = parseFloat(num2);
+
+      if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById("result").innerHTML = "❗ Please enter valid numbers.";
+        return;
+      }
+
+      let addition = num1 + num2;
+      let subtraction = num1 - num2;
+      let multiplication = num1 * num2;
+      let division = num2 !== 0 ? (num1 / num2).toFixed(2) : "undefined (can't divide by 0)";
+
+      document.getElementById("result").innerHTML = `
+        <h2>Results:</h2>
+        <p>➕ Addition: ${num1} + ${num2} = ${addition}</p>
+        <p>➖ Subtraction: ${num1} - ${num2} = ${subtraction}</p>
+        <p>✖️ Multiplication: ${num1} × ${num2} = ${multiplication}</p>
+        <p>➗ Division: ${num1} ÷ ${num2} = ${division}</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
